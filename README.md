@@ -1,25 +1,45 @@
-# Master CT Assignment Template 
+# Working with csv files
 
-Use this master template to create CT Assignment Templates.
+First, find a csv file of data you want to use. You can get data from [NOAA](https://www.ncdc.noaa.gov/data-access) or many other public agencies. You can even use an excel file from a science class - just save it as a .csv file. (Note: CSV stands for *comma-separated values*. Save the csv file in this repo.
 
-## Problem Description
-Problem description goes here. 
+Next, be sure to import the csv module. (It comes with python, so you don't need to download anything. Just start your program with `import csv`)
 
-* Steps to take go here. 
+## Reading the headers
+Data spreadsheets have header lines that say what each column means. (If you are using your own lab data, be sure you have headers!)
+* Open the file
+* Use the reader() method in the csv module to read the file and assign it to a variable: `contents = csv.reader(filename)`
+* Use the next() function to return the next line of the file (in this case, the first line - which is the header). `next()` returns the line in a list. `header_row = next(contents)`
+* Print the header row - partly to be sure everything is working and also to see what the columns are!
 
-## Example
+## Printing the headers and their positions
+It's helpful - especially for larger data sets - to know the position (index) of each header. That makes it easier to reference a column of data without trying to count down or over in a list. Therefore, it's helpful to print out the headers with their positions. 
+* Using a for loop, print the index and the column header:
 ```
-Value to increment? 5
-10
+for index, column_header in enumerate(header_row):
+  print(index, column_header)
 ```
+* The `enumerate()` function returns the index and the value of each item as you loop through a list.
+* When this works, you can remove the previous print statement since this one is more useful.
 
-## Suggested Approach
-1) Suggestions go here
+# Extracting data
+* Choose a column of data you want to read.
+* Make an empty list to hold that data.
+* Use a `for` loop to step through the file contents. 
+  * Note: be sure you still have the file open!
+* Pull the data from the appropriate index and assign it to a variable.
+* Append that variable to your list.
+```
+wind_direction = []
+for row in contents:
+    w_dir = int(row[31])
+    wind_direction.append(w_dir)
 
-## Hints
-* Use the section under `if __name__ == '__main__': ` to change arguments and check your work.
-* When you are happy with your code, use `input()` to prompt the user for a value.
-* Add code to [my_code.py](./my_code.py) to make it do the desired thing.
-* Run your code with: `python my_code.py` or the run button
-* Run your tests with: `pytest`
+print(wind_direction)
+```
+Now you have a list of data that you can manipulate in any way you wish! Find the average, high and low, or whatever else makes sense. Be sure to add comments to your code so I understand what you're doing.
+
+When you commit, but sure to commit and push your data file(s) too!
+
+
+
 

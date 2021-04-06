@@ -1,6 +1,6 @@
 # Working with csv files
 
-First, find a csv file of data you want to use. You can get data from [NOAA](https://www.ncdc.noaa.gov/data-access) or many other public agencies. You can even use an excel file from a science class - just save it as a .csv file. (Note: CSV stands for *comma-separated values*. Save the csv file in this repo.
+First, find a csv file of data you want to use. You can get data from [NOAA](https://www.ncdc.noaa.gov/data-access) or many other public agencies. You can even use an excel file from a science class - just save it as a .csv file. (Note: CSV stands for *comma-separated values*. Save the csv file in this repo.)
 
 Next, be sure to import the csv module. (It comes with python, so you don't need to download anything. Just start your program with `import csv`)
 
